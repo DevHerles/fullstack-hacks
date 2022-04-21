@@ -64,3 +64,54 @@
 ⬢  ~
 ❯
 ```
+
+# Create a Desktop Entry
+
+Usually are listed in: 
+```
+ls -l /usr/share/applications/
+```
+
+> https://www.cyberciti.biz/howto/how-to-install-and-edit-desktop-files-on-linux-desktop-entries/
+
+## Sample 1
+
+[Desktop Entry]
+##  The name of the application ##
+Name=Startup Disk Creator
+GenericName=Startup Disk Creator
+ 
+## A comment which act as a tooltip ##
+Comment=Create a startup disk using a CD or disc image
+ 
+## The executable of the application with optional args ##
+## You can state full path too ##
+Exec=usb-creator-gtk
+ 
+## State the name of the icon that will be used to display this entry ##
+Icon=usb-creator-gtk
+ 
+## Is it a terminal app? For example htop will be set as Terminal=True ##
+## Then default terminal app will be used to open the 'htop' ##
+Terminal=false
+ 
+##  The type as listed  ##
+Type=Application
+ 
+## States the categories in which this entry should be shown menu ##
+Categories=System;Settings;GTK;HardwareSettings;
+ 
+X-Ubuntu-Gettext-Domain=usbcreator
+
+## Sample 2
+
+[Desktop Entry]
+Name=Zotero
+Exec=bash -c "$(dirname $(realpath $(echo %k | sed -e 's/^file:\/\///')))/zotero -url %U"
+Icon=zotero.ico
+Type=Application
+Terminal=false
+Categories=Office;
+MimeType=text/plain;x-scheme-handler/zotero;application/x-research-info-systems;text/x-research-info-systems;text/ris;application/x-endnote-refer;application/x-inst-for-Scientific-info;application/mods+xml;application/rdf+xml;application/x-bibtex;text/x-bibtex;application/marc;application/vnd.citationstyles.style+xml
+X-GNOME-SingleWindow=true
+
